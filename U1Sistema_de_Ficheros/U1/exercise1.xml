@@ -1,0 +1,26 @@
+<!DOCTYPE transactions [
+        <!ELEMENT transactions (record+)>
+        <!ELEMENT record (title, artist_band, genre, unit_price, date)>
+        <!ELEMENT title (#PCDATA)>
+        <!ELEMENT artist_band (#PCDATA)>
+        <!ELEMENT genre (#PCDATA)>
+        <!ELEMENT unit_price (#PCDATA)>
+        <!ELEMENT date (#PCDATA)>
+        ]>
+<!-- Valid XML Document-->
+<transactions>
+    <record>
+        <title>Bohemian Rhapsody</title>
+        <artist_band>Queen</artist_band>
+        <genre>Rock</genre>
+        <unit_price>15.00</unit_price>
+        <date>2024-04-15</date>
+    </record>
+    <record>
+        <title>Everything Ends</title>
+        <artist_band>Slipknot</artist_band>
+        <genre>Nu metal</genre>
+        <unit_price>9.00</unit_price>
+        <date>2024-04-16</date>
+    </record>
+</transactions>
