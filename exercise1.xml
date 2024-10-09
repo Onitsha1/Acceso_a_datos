@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Valid XML Document--><transactions>
+    <record>
+        <title>Bohemian Rhapsody</title>
+        <artist_band>Queen</artist_band>
+        <genre>Rock</genre>
+        <unit_price>15.00</unit_price>
+        <date>2024-04-15</date>
+    </record>
+    <record>
+        <title>Everything Ends</title>
+        <artist_band>Slipknot</artist_band>
+        <genre>Nu metal</genre>
+        <unit_price>9.00</unit_price>
+        <date>2024-04-16</date>
+    </record>
+<record><title>Disasterpiece</title><artist_band>Slipknot</artist_band><genre>Nu</genre><unit_price>12</unit_price><date>2023-12-08</date></record></transactions>

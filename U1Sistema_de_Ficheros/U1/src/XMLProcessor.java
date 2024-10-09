@@ -5,8 +5,21 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 
+/**
+ * XMLProcessor is a class responsible for parsing XML files and processing their content.
+ * It utilizes the Document Object Model (DOM) to represent and manipulate XML data.
+ */
 public class XMLProcessor {
-    //Get DOM from an XML file
+    /**
+     * Parses the specified XML file and returns its DOM representation as a Document object.
+     *
+     * @param fileNameXML The name of the XML file to be parsed.
+     * @return The Document object representing the XML structure.
+     * @throws IOException If there is an error reading the file.
+     * @throws SAXException If there is an error parsing the XML.
+     * @throws ParserConfigurationException If there is a configuration error with the parser.
+     * @throws FileNotFoundException If the specified file does not exist.
+     */
     public Document parseXML(String fileNameXML) throws IOException, SAXException, ParserConfigurationException,
             FileNotFoundException {
         /*Create an instance of DocumentsBuilderFactory (an abstract class with a protected constructor that
@@ -16,14 +29,22 @@ public class XMLProcessor {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             //Create an instance of DocumentBuilder from the dbFactory instance
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            // Parse the XML file with DocumentBuilder
+            // Parse the XML file with DocumentBuilder to a DOM Document object
+            System.out.println("XML file parsed successfully");
             return dBuilder.parse(new File(fileNameXML));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    /**
+     * Processes the nodes of the given XML Document, specifically looking for <record> elements,
+     * and prints their details to the console.
+     *
+     * @param root The root Document object representing the parsed XML.
+     */
     public void processNodes(Document root) {
         try {
             //Get a list of child elements from parent element
@@ -47,6 +68,13 @@ public class XMLProcessor {
         }
     }
 
+    /**
+     * Retrieves the text content of the first child element with the specified tag name within the given element.
+     *
+     * @param element The parent element containing the desired tag.
+     * @param tag The name of the tag to retrieve the value from.
+     * @return The text content of the specified tag, or null if the tag does not exist.
+     */
     private String getTagValue(Element element, String tag) {
         /*Fetches the text content of the first element with the specified tag name (assuming no duplicate tags
          within the same element)*/

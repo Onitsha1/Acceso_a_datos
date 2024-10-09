@@ -4,11 +4,13 @@ public class Main {
         fileManager.createFile("FileTest.txt");*/
         try {
             var xmlProcessor = new XMLProcessor();
+            var updateXML = new UpdateXML();
             var doc = xmlProcessor.parseXML("exercise1.xml");
             if (doc == null){
                 System.out.println("Unable to parse XML file");
             } else {
-                xmlProcessor.processNodes(doc);
+                updateXML.modifyXML(doc);
+                //xmlProcessor.processNodes(doc);
             }
         } catch (Exception e){
             e.printStackTrace();

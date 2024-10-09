@@ -1,7 +1,14 @@
 import java.io.*;
-
+/**
+ * FileManager is a class that provides methods for file operations such as creating,
+ * deleting, copying, and moving files.
+ */
 public class FileManager {
-
+    /**
+     * Creates a new file with the specified name.
+     *
+     * @param fileName The name of the file to be created.
+     */
     public void createFile (String fileName){
         File file = new File(fileName); /*Defining a reference to the new file.
         Note: The file is not created at this point*/
@@ -16,6 +23,11 @@ public class FileManager {
         }
     }
 
+    /**
+     * Deletes the file with the specified name.
+     *
+     * @param fileName The name of the file to be deleted.
+     */
     public void deleteFile (String fileName){
         File file = new File(fileName);
         if (file.delete()){
@@ -25,6 +37,12 @@ public class FileManager {
         }
     }
 
+    /**
+     * Copies a file from the source path to the destination path.
+     *
+     * @param source The path of the file to be copied.
+     * @param sink   The destination path where the file will be copied.
+     */
     public void copyFile (String source, String sink){
         File sourceFile = new File(source);
         File sinkFile = new File (sink);
@@ -47,10 +65,15 @@ public class FileManager {
         }
     }
 
+    /**
+     * Moves a file from the source path to the destination path. This method can also be used to rename the file.
+     *
+     * @param source The current path of the file to be moved or renamed.
+     * @param sink   The new path where the file will be moved or the new name if renaming.
+     */
     public void moveFile (String source, String sink) {
         /*This method can be used both to move a file and to rename it. To move a file the path is modified and
-        to rename a file the path stays as it is but the name is modified.
-         */
+        to rename a file the path stays as it is but the name is modified.*/
         File sourceFile = new File(source);
         File sinkFile = new File (sink);
         if (sourceFile.renameTo(sinkFile)){
