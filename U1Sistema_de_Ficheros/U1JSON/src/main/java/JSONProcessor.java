@@ -64,7 +64,7 @@ public class JSONProcessor {
     public void updateJSONFile (String JSONFile){
         try {
             JSONObject recordsJSON = loadJSONFile(JSONFile);
-            // Retrieve the array of transactions from the loaded JSON object
+            // Retrieve the array of records from the loaded JSON object
             JSONArray recordsArray = recordsJSON.getJSONArray("transactions");
             for (int i = 0; i < recordsArray.length(); i++) {
                 JSONObject record = recordsArray.getJSONObject(i);
