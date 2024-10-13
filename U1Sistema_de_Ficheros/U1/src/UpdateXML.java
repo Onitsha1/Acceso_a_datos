@@ -1,10 +1,11 @@
 import org.w3c.dom.*;
-import javax.xml.transform.Transformer;
+import javax.xml.transform.*;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import javax.xml.xpath.*;
 
 public class UpdateXML {
     /**
@@ -15,7 +16,7 @@ public class UpdateXML {
      */
     public void modifyXML (Document doc){
         try (FileOutputStream output = new FileOutputStream("exercise1.xml")){
-            // Retrieve the first "transactions" element to append the new child element
+            // A list of root nodes to append the new child element later on
             NodeList transacList = doc.getElementsByTagName("transactions");
             if (transacList.getLength() > 0){
                 //Creates a new child element
@@ -55,6 +56,28 @@ public class UpdateXML {
                 System.out.println("XML file successfully updated");
             }
        } catch (TransformerException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Extracts and prints the value of the <title> element from the given XML Document using an XPath expression.
+     *
+     * The method searches for the <title> element under the <transactions>/<record> node within the XML structure
+     * and prints its content. If the element is not found or an error occurs while evaluating the XPath expression,
+     * an exception is caught and printed.
+     *
+     * @param doc The XML DOM Document from which to extract the <title> element.
+     */
+    public void modifyXMLXPath(Document doc){
+        try {
+            XPath xpath = XPathFactory.newInstance().newXPath();
+            // Compile the XPath expression to select the <title> node inside <transactions>/<record>
+            XPathExpression xPathExpr = xpath.compile("transactions/record/title");
+            // Evaluate the expression on the provided document and retrieve the <title> node as a String
+            String title = (String) xPathExpr.evaluate(doc, XPathConstants.STRING);
+            System.out.println("Title: " + title);
+        } catch (Exception e){
             e.printStackTrace();
         }
     }

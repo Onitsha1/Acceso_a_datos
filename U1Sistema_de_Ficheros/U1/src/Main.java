@@ -9,7 +9,7 @@ public class Main {
             if (doc == null){
                 System.out.println("Unable to parse XML file");
             } else {
-                updateXML.modifyXML(doc);
+                updateXML.modifyXMLXPath(doc);
                 //xmlProcessor.processNodes(doc);
             }
         } catch (Exception e){
